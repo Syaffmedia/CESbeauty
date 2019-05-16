@@ -18,7 +18,7 @@ mysqli_select_db($koneksi,"dbsite_cesbeauty") or die("Database gagal dibuka!".my
         $kp_usr=$_POST['kp_usr'];
         $kota_usr=$_POST['kota_usr'];
         $tlp=$_POST['tlp'];
-        $email_usrm="$_POST['email']";
+        $email_usr="$_POST['email']";
         $nopembelian=$_POST['nopembelian'];
         $kodebarang=$_POST['kodebarang'];
         $namabarang=$_POST['namabarang'];

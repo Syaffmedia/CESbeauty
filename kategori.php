@@ -55,17 +55,11 @@
 	}
 	?>
             </div>
-				<div class="title"><h5>Tentang Kami</h5></div>
+				<div class="title">&nbsp;</div>
 				<div class="body">
-					<p>
-            <?php include 'tentangkami.txt'; ?>
-          </p>
-				</div> <hr>
-        <div class="title"><h5>Kontak</h5></div>
+				</div>
+        <div class="title">&nbsp;</div>
         <div class="body">
-          <p>
-            <?php include 'kontak.txt'; ?>
-          </p>
         </div>
         	</div>
         <!-- /.col-lg-3 -->
@@ -102,14 +96,14 @@
               			<span class="sr-only">Next</span>
             		</a>
                 <p><marquee scrollamount=”3”>
-              Selamat datang di BangSayur. Happy Shopping....&nbsp;
+              Selamat datang di CES Beauty. Happy Shopping....&nbsp;
           </marquee></p>
           		</div>
 				<div class="row">
 
 <?php
 @$kategori=$_GET['kat'];
-if ($kategori=='Buah' || $kategori=='Sayuran' || $kategori=='Daging'){
+if ($kategori=='Powder' || $kategori=='Foundation' || $kategori=='Blush On' || $kategori=='Maskara' ||$kategori=='Eyebrow' ||$kategori=='Lipstick' ){
 
 $batas=10;
 @$halaman=$_GET['halaman'];

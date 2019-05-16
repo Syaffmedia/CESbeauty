@@ -94,7 +94,7 @@
               			<span class="sr-only">Next</span>
             		</a>
                 <p><marquee scrollamount=”3”>
-              Selamat datang di CES Beauty. Happy Shopping....&nbsp;
+              Selamat datang di CES Beauty. Happy Shopping......&nbsp;
           </marquee></p>
           		</div>
 				<div class="row">
