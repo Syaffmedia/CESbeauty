@@ -29,7 +29,7 @@ mysqli_select_db($koneksi,"dbsite_cesbeauty") or die("Database gagal dibuka!".my
         $tanggal=date("Y-n-d");
 
 //echo "$status, $nm_usr, $almt_usr, $kp_usr, $kota_usr, $email_usr, $tlp, $narek, $norek, $bank, $nopembelian, $kodebarang, $namabarang, $jmlbarang, $hargabarang, $subtotal, $total";
-        $sql="INSERT INTO pesanan (tanggal,  nama, alamat, kdpos, kota, email, telp, narek, norek, bank, no_beli, kd_barang, nm_barang, penjual, jumlah, harga, subtotal, total, status) VALUES ('$tanggal','$nm_usr', '$almt_usr', '$kp_usr', '$kota_usr', '$email_usr', '$tlp', '$narek', '$norek', '$bank', '$nopembelian', '$kodebarang', '$namabarang','$penjual','$jmlbarang','$hargabarang','$subtotal','$total','$status')";
+        $sql="INSERT INTO pesanan (tanggal,  nama, alamat, kdpos, kota, email, telp, narek, norek, bank, no_beli, kd_barang, nm_barang, penjual, jumlah, harga, subtotal, total, status, kurir) VALUES ('$tanggal','$nm_usr', '$almt_usr', '$kp_usr', '$kota_usr', '$email_usr', '$tlp', '$narek', '$norek', '$bank', '$nopembelian', '$kodebarang', '$namabarang','$penjual','$jmlbarang','$hargabarang','$subtotal','$total','$status','$kurir')";
 //$sql="INSERT INTO jajal(nama, notel,kota) VALUES('$jjlnama','$jjlnotel','$jjlkota')";
         mysqli_query($koneksi,$sql) or die("Query gagal disimpan".mysqli_error());
         echo "<script>alert('Anda berhasil checkout, Silahkan lakukan pembayaran Rp. $total; '); window.location = 'selesai.php'</script>";
