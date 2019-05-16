@@ -8,7 +8,7 @@
           CES Beauty
         </p>
 
-        <p class="footer-company-name">&copy;2018 cesbeauty </p>
+        <p class="footer-company-name">&copy;2019 cesbeauty </p>
       </div>
 
       <div class="footer-center">

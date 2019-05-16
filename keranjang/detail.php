@@ -50,8 +50,8 @@
 <table class="table table-hover table-condensed">
 <tr>
                     <th><center>No Pembelian</center></th>
-                    <th><center>Kode Barang</center></th>
                     <th><center>Nama Barang</center></th>
+                    <th><center>Penjual</center></th>
                     <th><center>Jumlah</center></th>
                     <th><center>Harga Satuan</center></th>
                     <th><center>Sub Total</center></th>
@@ -73,12 +73,13 @@
             ?>
                 <tr>
                 <td>
+                    <input type="hidden" name="kodebarang" value="<?php echo $data['br_id'];; ?>">
                     <input type="hidden" name="nopembelian" value="<?php echo $no; ?>">
                     <center><?php echo $no; ?></center>
                 </td>
                 <td>
-                    <input type="hidden" name="kodebarang" value="<?php echo $data['br_id']; ?>">
-                    <center><?php echo $data['br_id']; ?></center>
+                    <input type="hidden" name="penjual" value="<?php echo $data['Penjual']; ?>">
+                    <center><?php echo $data['Penjual']; ?></center>
                 </td>
                 <td>
                     <input type="hidden" name="namabarang" value="<?php echo $data['br_nm']; ?>">

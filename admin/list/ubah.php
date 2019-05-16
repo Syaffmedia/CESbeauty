@@ -29,7 +29,7 @@ include '../include/config.php';
         <img src="../gambar/logo.png" height="40px">
       </div>
       <div class="row-lg-3">
-        <a class="navbar-brand" href="index.php"><b>&nbsp;Bang</b> Sayur</a>
+        <a class="navbar-brand" href="index.php"><b>&nbsp;CES</b> Beauty</a>
       </div>
       
       <div class="row-lg-6" >
@@ -208,11 +208,10 @@ else
 }
 ?>
 
-		<footer class="site-footer">
-    <?php include '../include/footer.php'; ?>   
-    </footer>
 
 </div>
 </body>
-
+<footer class="site-footer">
+    <?php include '../../include/footer2.php'; ?>   
+    </footer>
 </html>

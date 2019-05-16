@@ -47,9 +47,6 @@ include '../include/config.php';
               <a class="nav-link" href="list.php">Daftar Barang</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../kurir/kurir.php">Data Kurir</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="../pesanan/pesanan.php">Data Pesanan</a>
             </li>
             <li class="nav-item">
@@ -184,10 +181,9 @@ else{
 }
 ?>
 
-		<footer class="site-footer">
-    <?php include '../include/footer.php'; ?>   
-    </footer>
-
 </div>
+<footer class="site-footer">
+    <?php include '../../include/footer2.php'; ?>   
+    </footer>
 </body>
 </html>

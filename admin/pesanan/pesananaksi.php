@@ -155,11 +155,11 @@ if(!isset($_SESSION['SES_ADMIN'])) {
 			
 		</table>
     </form>
-		<footer class="site-footer">
-    <?php include '../include/footer.php'; ?>   
-    </footer>
 
 </div>
+<footer class="site-footer">
+    <?php include '../../include/footer2.php'; ?>   
+    </footer>
 </body>
 
 </html>

@@ -1,65 +1,45 @@
 <?php
-if(!session_id())session_start();
-if(!isset($_SESSION['SES_ADMIN'])) {
-  echo "<div align=center><b></b><br>";
-  echo "<script>alert('AKSES DILARANG! User tidak dikenal. '); window.location = '../login.php'</script>";
-  exit;
-}
-?>
+include'../include/session.php';
+include'../include/config.php';?>
+
 <!DOCTYPE html>
 <html>
 
-<head>
-        <!-- start: CSS --> 
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="../css/css.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
-    <!-- end: CSS -->
-</head>
+  <head> 
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>cesbeauty</title>
+    <!-- start: CSS --> 
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="../assets/css/style.css" rel="stylesheet"/>
+    <link href="../assets/css/css.css" rel="stylesheet"/>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/font-awesome.min.css" rel="stylesheet"/>
+  
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <!-- end: CSS -->
+  </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="row-lg-3">
-        <img src="../gambar/logo.png" height="40px">
-      </div>
-      <div class="row-lg-3">
-        <a class="navbar-brand" href="../index.php"><b>&nbsp;CES</b> Beauty</a>
-      </div>
-      
-      <div class="row-lg-6" >
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.php">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../list/list.php">Daftar Barang</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../kurir/kurir.php">Data Kurir</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="pesanan.php">Data Pesanan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="penjualan.php">Data Penjualan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../logout.php">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav> 
+    <!-- Navigation -->
+<?php 
+  if(isset($_SESSION['username']))
+  {
+    $username = $_SESSION['username'];
+    include '../include/navigation2.php';
+  }
+  else 
+  { 
+    include '../include/navigation2-before.php';
+  }
+?>
 <div class="container">
   <div class="navbar navbar-collapse">
     <div class="nav-item">
@@ -90,7 +70,7 @@ $query = "DELETE FROM pesanan
           WHERE DATEDIFF(CURDATE(), tanggal) > $lama AND status='0'";
 $hasil = mysqli_query($koneksi,$query);
 
-			$sql="SELECT * FROM pesanan WHERE Penjual='$username' ORDER BY no DESC";
+			$sql="SELECT * FROM pesanan WHERE penjual='$username' ORDER BY no DESC";
 			$qry=mysqli_query($koneksi,$sql) or die("Query gagal".mysqli_error());
 		//	$data=mysqli_fetch_array($qry); 
 			

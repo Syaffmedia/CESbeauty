@@ -45,9 +45,6 @@ if(!isset($_SESSION['SES_ADMIN'])) {
             <li class="nav-item active">
               <a class="nav-link" href="list.php">Daftar Barang</a>
             </li>
-            <!--li class="nav-item">
-              <a class="nav-link" href="../kurir/kurir.php">Data Kurir</a>
-            </li-->
             <li class="nav-item">
               <a class="nav-link" href="../pesanan/pesanan.php">Data Pesanan</a>
             </li>
@@ -107,12 +104,12 @@ if(!isset($_SESSION['SES_ADMIN'])) {
 }
 ?>
 		</table>
-    <footer class="site-footer">
-    <?php include '../include/footer.php'; ?>   
-    </footer>
 
 </div>
 
+<footer class="site-footer">
+    <?php include '../../include/footer2.php'; ?>   
+    </footer>
 
  <!-- start: Java Script -->
     <!-- Placed at the end of the document so the pages load faster -->

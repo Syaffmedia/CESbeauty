@@ -53,19 +53,13 @@
 	}
 ?>
             </div>
-				<!--div class="title"><h5>Fitur</h5></div>
+				<div class="title"><h5>&nbsp;</h5></div>
 				<div class="body">
-					<p>
-            <?php// include 'tentangkami.txt'; ?>
-          </p>
 				</div> <hr>
-        <div class="title"><h5>Script Kiddies</h5></div>
+        <div class="title"><h5>&nbsp;</h5></div>
         <div class="body">
-          <p>
-            <?php //include 'kontak.txt'; ?>
-          </p>
         </div>
-        	</div -->
+        	</div>
         <!-- /.col-lg-3 -->
 
 	        <div class="col-lg-9">

@@ -23,9 +23,12 @@
           Kategori
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Buah";?>">Buah</a>
-          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Daging";?>">Daging</a>
-          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Sayuran";?>">Sayur</a>
+          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Powder";?>">Powder</a>
+          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Foundation";?>">Foundation</a>
+          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Blush On";?>">Blush On</a>
+          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Maskara";?>">Maskara</a>
+          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Eyebrow";?>">Eyebrow</a>
+          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Lipstick";?>">Lipstick</a>
 		</div>
 		</li>
 		</ul>

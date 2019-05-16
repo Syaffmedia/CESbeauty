@@ -44,11 +44,8 @@ if(!isset($_SESSION['SES_ADMIN'])) {
             <li class="nav-item">
               <a class="nav-link" href="../list/list.php">Daftar Barang</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../kurir/kurir.php">Data Kurir</a>
-            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="pesanan.php">Data Pesanan</a>
+              <a class="nav-link" href="pesanan.php">Data Transaksi</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="penjualan.php">Data Penjualan</a>
@@ -124,9 +121,9 @@ $hasil = mysqli_query($koneksi,$query);
         </td>
 				<td>
 					<a class="btn btn-sm btn-info" href="detail.php?ID=<?php echo $data['no_beli'];?>">Detail</a>
-          <!--?php
+          <!-- ?php
           if ($status==0) { ?>
-             <a class="btn btn-sm btn-info" href="pesananaksi.php?ID=<?php echo $data['no_beli'];?>">Kirim</a>
+             <a class="btn btn-sm btn-info" href="pesananaksi.php?ID=<?php // echo $data['no_beli'];?>">Kirim</a>
           <?php } ?> -->
           
 				</td>
@@ -135,12 +132,11 @@ $hasil = mysqli_query($koneksi,$query);
 }
 ?> -->
 		</table>
-    <footer class="site-footer">
-    <?php include '../include/footer.php'; ?>   
-    </footer>
 
 </div>
-
+<footer class="site-footer">
+    <?php include '../../include/footer2.php'; ?>   
+    </footer>
 
  <!-- start: Java Script -->
     <!-- Placed at the end of the document so the pages load faster -->

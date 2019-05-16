@@ -99,11 +99,11 @@ if(!isset($_SESSION['SES_ADMIN'])) {
 ?>
 		</table>
 		<div align="right"><a href="pesanan.php" class="btn btn-md btn-info">Kembali</a></div>
-		<footer class="site-footer">
-    <?php include '../include/footer.php'; ?>   
-    </footer>
 
 </div>
+<footer class="site-footer">
+    <?php include '../../include/footer2.php'; ?>   
+    </footer>
 </body>
 
 </html>
