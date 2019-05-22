@@ -4,7 +4,7 @@
 
         <img width="20px" src="gambar/logo.png">
 
-         <p class="footer-links">
+         <p class="footer-links" style="color: pink;">
           CES Beauty
         </p>
 
@@ -19,7 +19,7 @@
         <p class="footer-company-about">
           <span>CES Beauty</span>
           adalah pasar online khusus kosmetik dan alat kecantikan lain<br />
-          <strong style="color:yellow;"> Ayo belanja sekarang juga! </strong>
+          <strong style="color:pink;"> Ayo belanja sekarang juga! </strong>
         </p>
 
         <div class="footer-icons">

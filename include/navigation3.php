@@ -17,19 +17,6 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Kategori
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Powder";?>">Powder</a>
-          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Foundation";?>">Foundation</a>
-          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Blush On";?>">Blush On</a>
-          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Maskara";?>">Maskara</a>
-          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Eyebrow";?>">Eyebrow</a>
-          <a class="dropdown-item" name="kategori" href="kategori.php?kat=<?php echo "Lipstick";?>">Lipstick</a>
-		</div>
-		</li>
             <li class="nav-item">
               <a class="nav-link" href="../user/pesanan.php">Pembelian
                 <span class="sr-only">(current)</span>

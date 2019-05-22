@@ -33,7 +33,7 @@ include'../include/config.php';?>
   if(isset($_SESSION['username']))
   {
     $username = $_SESSION['username'];
-    include '../include/navigation2.php';
+    include '../include/navigation3.php';
   }
   else 
   { 

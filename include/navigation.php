@@ -3,7 +3,7 @@
         <img src="gambar/logo.png" width="15px" height="40px">
       </div>
       <div class="row-lg-3">
-        <a class="navbar-brand" href="index.php"><b>&nbsp;CES</b>Beauty</a>
+        <a style="color: pink;" class="navbar-brand" href="index.php"><b>&nbsp;CES</b>Beauty</a>
       </div>
       
       

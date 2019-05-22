@@ -58,85 +58,56 @@ if(!isset($_SESSION['SES_ADMIN'])) {
       </div>
     </nav> 
 <div class="container">
-  <div class="navbar navbar-collapse">
-    <div class="nav-item">
-      <center><h1>DAFTAR TRANSAKSI</h1></center>
-    </div>
-    <div class="nav-item" align="right"> <p>
-      <a href="konfirmasi.php" class="btn btn-lg btn-warning"> Konfirmasi Pesanan </a></p>
-    </div> 
+  <div align="center">
+    <h2>KONFIRMASI PESANAN</h2>
+    <hr>
   </div>
-   <hr>
-	<table class="table-responsive table table-condensed">
-		
-			<tr style="text-align: center;">
+  <table class="table-responsive table table-condensed">
+    
+      <tr style="text-align: center;">
         <th width="50">No</th>
-				<th width="50">Kd_Transaksi</th>
-				<th width="200">Nama Barang</th>
-        <th width="120">Harga</th>
-				<th width="50">Jml</th>
-				<th width="140">Total</th>
-        <th width="200">Nama Pemesan</th>
-        <th width="50">Status</th>
-			<th width="150">Aksi</th>
-			</tr>
-			<?php
-			include'../include/config.php';
-      $lama = 1; // lama data yang tersimpan di database dan akan otomatis terhapus setelah 5 hari
- 
-// proses untuk melakukan penghapusan data
- 
-$query = "DELETE FROM pesanan
-          WHERE DATEDIFF(CURDATE(), tanggal) > $lama AND status='0'";
-$hasil = mysqli_query($koneksi,$query);
-
-			$sql="SELECT * FROM pesanan  ORDER BY no DESC";
-			$qry=mysqli_query($koneksi,$sql) or die("Query gagal".mysqli_error());
-		//	$data=mysqli_fetch_array($qry); 
-			
-			while ($data = mysqli_fetch_array($qry)){ ?>
-			<tr>
+        <th width="100">Kode Pembelian</th>
+        <th width="100">Kode Transaksi</th>
+        <th width="100">No Rekening</th>
+        <th width="150">Nama Rekening</th>
+        <th width="50">Tanggal</th>
+        <th width="140">Total</th>
+        <th width="200">Bukti Pembayaran</th>
+        <th width="100">Aksi</th>
+        
+      </tr>
+      <?php
+      include'../include/config.php';
+      $status="0";
+      $sql="SELECT * FROM konfirm WHERE status='$status' ORDER BY no DESC";
+      $qry=mysqli_query($koneksi,$sql) or die("Query gagal".mysqli_error());
+    //  $data=mysqli_fetch_array($qry); 
+      
+      while ($data = mysqli_fetch_array($qry)){ ?>
+      <tr>
         <td style="text-align: center;"><?php echo $data['no']; ?></td>
-				<td style="text-align: center;"><?php echo $data['no_beli']; ?></td>
-				<td><?php echo $data['nm_barang']; ?></td>
-        <td style="text-align: right;"><?php echo 'Rp. '.number_format($data['harga'],0,",",".").''; ?></td>
-				<td style="text-align: center;"><?php echo $data['jumlah']; ?></td>
-				<td style="text-align: right;"><?php echo 'Rp. '.number_format($data['total'],2,",",".").''; ?></td>
-        <td><?php echo $data['nama']; ?></td>
-        <td style="text-align: center;">
-          <?php
-            $status=$data['status'];
-            switch ($status) {
-              case '0':
-                echo "Belum Diproses";
-                break;
-              case '1':
-                echo "Dalam Proses";
-                break;
-              case '2':
-                echo "Ditolak";
-                break;
-              default:
-                echo "Sukses";
-                break;
-            }
-          ?>  
+        <td style="text-align: center;"><?php echo $data['no_beli']; ?></td>
+        <td style="text-align: center;"><?php echo $data['kd_trans']; ?></td>
+        <td style="text-align: right;"><?php echo $data['norek']; ?></td>
+        <td style="text-align: center;"><?php echo $data['narek']; ?></td>
+        <td style="text-align: center;"><?php echo $data['tanggal']; ?></td>
+        <td style="text-align: right;"><?php echo 'Rp. '.number_format($data['total'],2,",",".").''; ?></td>
+        <td style="text-align: center;"><img width="200px" height="200px" src="../../gambar/konfirmasi/<?php echo $data['bukti']; ?>"></td>
+        <td align="center">
+          <a class="btn btn-sm btn-success" href="acc.php?ID=<?php echo $data['no_beli'];?>">V</a>
+          <a class="btn btn-sm btn-danger" href="tolak.php?ID=<?php echo $data['no_beli'];?>">X</a>
         </td>
-				<td>
-					<a class="btn btn-sm btn-info" href="detail.php?ID=<?php echo $data['no_beli'];?>">Detail</a>
-          <!-- ?php
-          if ($status==0) { ?>
-             <a class="btn btn-sm btn-info" href="pesananaksi.php?ID=<?php // echo $data['no_beli'];?>">Kirim</a>
-          <?php } ?> -->
-          
-				</td>
-			</tr>
-<!--?php
+      </tr>
+<?php
 }
-?> -->
-		</table>
+?>
+    </table>
+    <footer class="site-footer">
+    <?php include '../include/footer.php'; ?>   
+    </footer>
 
 </div>
+
 <footer class="site-footer">
     <?php include '../../include/footer2.php'; ?>   
     </footer>

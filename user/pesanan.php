@@ -31,7 +31,7 @@
   if(isset($_SESSION['username']))
   {
     $username = $_SESSION['username'];
-    include '../include/navigation2.php';
+    include '../include/navigation3.php';
   }
   else 
   { 
@@ -50,13 +50,14 @@
 		
 			<tr style="text-align: center;">
         <th width="50">No</th>
-				<th width="50">Kd_Transaksi</th>
+				<th width="50">Invoice</th>
 				<th width="300">Nama Barang</th>
         <th width="50">Jml</th>
         <th width="120">Harga</th>
 				<th width="140">Total</th>
-        <th width="100">Kurir</th>
-        <th width="50">Status</th>
+        <th width="50">Pembayaran</th>
+        <th width="100">Keterangan</th>
+        <th width="50">Pengiriman</th>
 			<th width="100">Aksi</th>
 				
 			</tr>
@@ -87,6 +88,16 @@ $username = $_SESSION['username'];
         <td style="text-align: center;"><?php echo $data['jumlah']; ?></td>
         <td style="text-align: right;"><?php echo 'Rp. '.number_format($data['subtotal'],0,",",".").''; ?></td>
 				<td style="text-align: right;"><?php echo 'Rp. '.number_format($data['total'],2,",",".").''; ?></td>
+        <td>
+          <?php 
+            if ($data['status']==0) { ?>
+              <a class="btn btn-sm btn-warning" href="../konfirmasi.php">Konfirm Pembayaran</a>
+            <?php } 
+            else {
+              echo "Sudah Dibayar";
+            } ?>
+          
+        </td>
         <td><?php 
         $kurir=$data['kurir'];
         switch ($kurir) {
@@ -104,24 +115,27 @@ $username = $_SESSION['username'];
             $status=$data['status'];
             switch ($status) {
               case '0':
-                echo "Menunggu";
+                echo "Menunggu Konfirmasi Pembayaran";
                 break;
               case '1':
                 echo "Dalam Proses";
                 break;
               case '2':
-                echo "Ditolak";
+                echo "Transaksi Ditolak";
+                break;
+              case '3':
+                echo "Barang Sedang Dikirim";
                 break;
               default:
-                echo "Sukses";
+                echo "Transaksi Berhasil";
                 break;
             }
           ?>  
         </td>
 				<td>
           <?php 
-            if ($status==1) { ?>
-              <a class="btn btn-sm btn-info" href="konfirmasi.php?ID=<?php echo $data['no_beli'];?>">Konfirmasi</a>
+            if ($status==3) { ?>
+              <a class="btn btn-sm btn-info" href="konfirmasi.php?ID=<?php echo $data['no_beli'];?>">Terima Barang</a>
             <?php } ?>
 					
 				</td>

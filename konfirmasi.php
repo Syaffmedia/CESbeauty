@@ -1,10 +1,7 @@
-<?php
-require_once 'include/config.php';
-require_once 'keranjang.php';
-?>
-<!DOCTYPE html>
+ <?php include'include/config.php';?>
+ <?php include 'include/session.php';?>
+ <?php require_once 'keranjang.php';?>
 <html lang="en">
-
   <head> 
 
     <meta charset="utf-8">
@@ -14,116 +11,53 @@ require_once 'keranjang.php';
 
     <title>cesbeauty</title>
     <!-- start: CSS --> 
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/css.css" rel="stylesheet">
-    <!-- end: CSS -->
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="assets/css/style.css" rel="stylesheet"/>
+    <link href="assets/css/css.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet"/>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
 
   </head>
 <body>
-
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="row-lg-3">
-        <img src="gambar/logo.png" width="40px" height="40px">
-      </div>
-      <div class="row-lg-3">
-        <a class="navbar-brand" href="index.php"><b>&nbsp;CES</b> Beauty</a>
-      </div>
-      <div class="row-lg-6" >
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.php">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-             <a class="nav-link" href="konfirmasi.php">Konfirmasi
-               <span class="sr-only"></span>
-             </a>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link" href="testimoni.php">Testimoni</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<?php 
+    if(isset($_SESSION['username']))
+    {
+        $username = $_SESSION['username'];
+        include 'include/navigation.php';
+    }
+    else 
+    {   
+        include 'include/navigation-before.php';
+    }
+?>
     <div class="container">
         <div class="row">
 
             <div class="col-lg-3">
-
 <div class="hero-unit">
-            <!--<div class="tittle"><h3><strong><span class="glyphicon glyphicon-shopping-cart"></span> Your Cart</strong></h3></div>--><br>
-            <h5>Keranjang Belanja</h5>
-          <table class="table table-hover table-condensed">
-          <tr>
-          <th><center>Item</center></th>
-          <th><center>Jml</center></th>
-          <th><center>Harga</center></th>
-        </tr>
-      <?php
-        //MENAMPILKAN DETAIL KERANJANG BELANJA//
-       include 'include/config.php';         
-    $total = 0;
-    //mysql_select_db($database_conn, $conn);
-    if (isset($_SESSION['items'])) {
-        foreach ($_SESSION['items'] as $key => $val) {
-            $query = mysqli_query($koneksi, "SELECT br_id, br_nm, br_hrg FROM barang WHERE br_id = '$key'");
-            $data = mysqli_fetch_array($query);
+<?php include'include/cari.php'; ?>
 
-            $jumlah_harga = $data['br_hrg'] * $val;
-            $total += $jumlah_harga;
-            //$no = 1;
-            ?>
-                <tr>
-                <!-- <td><center><?php echo $no ++; ?></center></td> -->
-                <td><center><?php echo $data['br_nm']; ?></center></td>
-                <td><center><?php echo number_format($val); ?> Pcs</center></td>
-                <td><center>Rp. <?php echo number_format($jumlah_harga); ?></center></td>
-                </tr>
-                
-          <?php
-                    //mysql_free_result($query);      
-            }
-              //$total += $sub;
-            }?>
-                        <?php
-        if($total == 0){ ?>
-          <td colspan="3" align="center"><?php echo "Keranjang Kosong!"; ?></td>
-        <?php } else { ?>
-          
-                        <td colspan="2" style="font-size: 14px;"><div class="pull-right">Total: Rp. <?php echo number_format($total); ?>,- </div></td>
-                        <td><div align="right">
-            <a href="keranjang/detail.php" class="btn btn-sm btn-success">Atur</a>
-            </div></td>
-          
-      <?php }
-        ?>
-                </table>
+<?php 
+    if(isset($_SESSION['username'])){
+    $username = $_SESSION['username'];
+    include 'include/keranjang.php';
+    }
+    else {
+        echo ' ';
+    }
+?>
             </div>
-        <hr>
-                <div class="title"><h5>Fitur</h5></div>
+                <div class="title"><h5>&nbsp;</h5></div>
                 <div class="body">
-                    <p>
-            <?php include 'tentangkami.txt'; ?>
-          </p>
                 </div> <hr>
-        <div class="title"><h5>Script Kiddies</h5></div>
+        <div class="title"><h5>&nbsp;</h5></div>
         <div class="body">
-          <p>
-            <?php include 'kontak.txt'; ?>
-          </p>
         </div>
             </div>
         <!-- /.col-lg-3 -->
@@ -160,11 +94,10 @@ require_once 'keranjang.php';
                         <span class="sr-only">Next</span>
                     </a>
                 <p><marquee scrollamount=”3”>
-              Selamat datang di CES Beauty. Happy Shopping....&nbsp;
+              Selamat datang di CES Beauty. Happy Shopping......&nbsp;
           </marquee></p>
                 </div>
-                <div class="row"></div>
-
+                <div class="row">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3><center>Konfirmasi Pembayaran</center></h3>
@@ -249,21 +182,19 @@ include'include/config.php';
 		echo "<meta http-equiv='refresh' content='0; url=index.php'>";	
 	} 
 ?>
-
-    <footer class="site-footer">
+</div>
     <?php include 'include/footer.php'; ?>   
-    </footer>
         <!-- start: Java Script -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="css/jquery/jquery.js"></script>
-    <script src="css/bootstrap/js/bootstrap.js"></script>
-    <script src="css/flexslider.js"></script>
-    <script src="css/carousel.js"></script>
-    <script src="css/jquery.cslider.js"></script>
-    <script src="css/slider.js"></script>
-    <script def src="js/custom.js"></script>
+    <script src="assets/css/jquery/jquery.js"></script>
+    <script src="assets/css/bootstrap/js/bootstrap.js"></script>
+    <script src="assets/css/flexslider.js"></script>
+    <script src="assets/css/carousel.js"></script>
+    <script src="assets/css/jquery.cslider.js"></script>
+    <script src="assets/css/slider.js"></script>
+    <script def src="assets/js/custom.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script src="css/jquery/jquery.min.js"></script>
-    <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/css/jquery/jquery.min.js"></script>
+    <script src="assets/css/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
